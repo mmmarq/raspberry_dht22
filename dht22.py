@@ -13,10 +13,10 @@ sensor = Adafruit_DHT.DHT22
 GPIO.setmode(GPIO.BOARD)
 
 # Set GPIO port connected to sensor
-pino_sensor = 4
+pin_sensor = 12
 
 # Read data from sensor
-umid, temp = Adafruit_DHT.read_retry(sensor, pino_sensor);
+umid, temp = Adafruit_DHT.read_retry(sensor, pin_sensor);
 
 # Show data if read was succesful
 if umid is not None and temp is not None:
