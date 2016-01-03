@@ -10,8 +10,8 @@ import RPi.GPIO as GPIO
 # Set sensor type
 sensor = Adafruit_DHT.DHT22
 
-GPIO.setmode(GPIO.BOARD)
-
+#GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 # Set GPIO port connected to sensor
 pin_sensor = 12
 
@@ -20,7 +20,10 @@ umid, temp = Adafruit_DHT.read_retry(sensor, pin_sensor);
 
 # Show data if read was succesful
 if umid is not None and temp is not None:
-  print ("Temperature = {0:0.1f}  Humidity = {1:0.1f}\n").format(temp, umid);
+  lTemp = "{0:0.1f}".format(temp)
+  lHumid =  "{0:0.1f}".format(umid)
+  print lTemp + "  " + lHumid
+  #print ("Temperature = {0:0.1f}  Humidity = {1:0.1f}\n").format(temp, umid);
 else:
   # Show error message if read was not ok
   print("Failed to read sensor data !!!")
